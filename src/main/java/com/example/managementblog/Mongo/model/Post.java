@@ -1,17 +1,14 @@
 package com.example.managementblog.Mongo.model;
 
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.NotBlank;
+import lombok.*;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
-@Data
 @Document(collection = "posts")
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -19,11 +16,14 @@ public class Post {
 
     @Id
     private String id;
+
+    @NotBlank(message = "Title is mandatory")
     private String title;
+
+    @NotBlank(message = "Content is mandatory")
     private String content;
-    private String author;
-    private String date;
-    private String category;
-    private LocalDateTime createdAt;
-    private List<Comment> comments;
+
+    private Long userId; // PostgreSQL user reference
+
+    private List<String> commentIds;
 }

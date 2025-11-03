@@ -2,37 +2,34 @@ package com.example.managementblog.Mongo.service;
 
 import com.example.managementblog.Mongo.model.Post;
 import com.example.managementblog.Mongo.repository.PostRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class PostService {
+
     private final PostRepository postRepository;
-
-    public PostService(PostRepository postRepository) {
-        this.postRepository = postRepository;
-    }
-
-    public Post createPost(Post post) {
-        post.setCreatedAt(java.time.LocalDateTime.now());
-        return postRepository.save(post);
-    }
 
     public List<Post> getAllPosts() {
         return postRepository.findAll();
     }
 
-    public Optional<Post> getPostById(String id) {
-        return postRepository.findById(id);
-    }
-
-    public Post updatePost(Post post) {
+    public Post createPost(Post post) {
         return postRepository.save(post);
     }
 
-    public void deletePostById(String id) {
+    public Post updatePost(String id, Post updatedPost) {
+        Post post = postRepository.findById(id).orElseThrow(() -> new RuntimeException("Post not found"));
+        post.setTitle(updatedPost.getTitle());
+        post.setContent(updatedPost.getContent());
+        return postRepository.save(post);
+    }
+
+    public void deletePost(String id) {
         postRepository.deleteById(id);
     }
+
 }

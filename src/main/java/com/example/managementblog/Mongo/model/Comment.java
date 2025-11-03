@@ -1,18 +1,23 @@
 package com.example.managementblog.Mongo.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.NotBlank;
+import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDateTime;
-
+@Document(collection = "comments")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class Comment {
-    private String author;
-    private String message;
-    private LocalDateTime date;
+
+    @Id
+    private String id;
+
+    @NotBlank(message = "Content is mandatory")
+    private String content;
+
+    private String postId;
+    private Long userId;
 }
