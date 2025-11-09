@@ -17,5 +17,29 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017/Management
 
+jwt:
+  secret: Mysecretkeyjksdncbndmyuwefcgsvahbnnsdyjrtdwu65463287hudnfvdmcvsghty673yedwhsnx
+  expiration: 3600000
+  refresh-expiration: 604800000
+
 server:
   port: 8080
+
+management:
+  endpoint:
+    web:
+      exposure:
+        include: health, info, metrics, env, loggers, threaddump, beans
+    health:
+      show-details: always
+
+info:
+  app:
+    name: Blog Management System
+    version: 1.0.0
+    developer: Esther Mushimiyimana
+
+logging:
+  level:
+    root: INFO
+    com.example.managementblog: DEBUG

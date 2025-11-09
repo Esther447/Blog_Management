@@ -11,7 +11,7 @@ import io.swagger.v3.oas.annotations.servers.Server;
                 description = "API allows users to make blog posts and comment on them.",
                 contact = @Contact(
                         name = "Esther447",
-                        url = "https://github.com/Esther447/Blog_Management"
+                        url = "https://github.com/ch7/Blog_Management"
                 ),
                 version = "1.0.0"
         ),
