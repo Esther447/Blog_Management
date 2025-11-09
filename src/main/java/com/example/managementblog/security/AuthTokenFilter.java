@@ -58,3 +58,5 @@ public class AuthTokenFilter extends OncePerRequestFilter {
         return null;
     }
 }
+
+// I will continue to improve this class later.

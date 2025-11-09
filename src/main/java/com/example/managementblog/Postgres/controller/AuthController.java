@@ -53,3 +53,5 @@ public class AuthController {
         return ResponseEntity.ok("User registered successfully!");
     }
 }
+
+// Authentication and authorization

@@ -13,3 +13,4 @@ public class TestController {
         return "User Content. Here you can see only user endpoints.";
     }
 }
+// testing the Application
