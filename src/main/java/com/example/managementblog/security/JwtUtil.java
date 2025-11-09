@@ -8,6 +8,11 @@ import org.springframework.stereotype.Component;
 import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
+/**
+ * JWT Utility Class for Authentication
+ * Provides token generation, validation, and parsing
+ * Used for securing API endpoints in the Inclusive Learning Platform
+ */
 
 @Component
 public class JwtUtil {
