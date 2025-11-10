@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/mydb
-    username: postgres
-    password: Gervais0790194121
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/postgres}
+    username: ${DATABASE_USER:postgres}
+    password: ${DATABASE_PASSWORD:password}
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -15,12 +15,12 @@ spring:
 
   data:
     mongodb:
-      uri: mongodb://localhost:27017/Management
+      uri: ${MONGODB_URI:mongodb://localhost:27017/blog}
 
 jwt:
-  secret: Mysecretkeyjksdncbndmyuwefcgsvahbnnsdyjrtdwu65463287hudnfvdmcvsghty673yedwhsnx
-  expiration: 3600000
-  refresh-expiration: 604800000
+  secret: ${jwt.secret:secret}
+  expiration: ${JWT_EXPIRATION:3600000}
+  refresh-expiration: ${JWT_REFRESH_EXPIRATION:64800000}
 
 server:
   port: 8080
