@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    password: Gervais0790193121
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/blog_mongo_db
+
+  jwt:
+    secret: Mysecretkeyjksdncbndmyuwefcgsvahbnnsdyjrtdwu65463287hudnfvdmcvsghty673yedwhsnx
